@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>untitled</title>
+    <style>
+        body{margin: 0;padding: 0; overflow: hidden;}
+    </style>
+</head>
+<body>
+<script>
+        let { ipcRenderer } = require("electron")
+        let Spiel = require("spiel-engine")
+        
+        ipcRenderer.send("spiel")
+        ipcRenderer.once("spiel:set-variable", (e, title, fonts) =>{
+            document.title = title
+            document.querySelector("style").innerHTML += fonts.map((o) =>`@font-face{
+                font-family: ${o.fontName};
+                font-style: ${o.fontStyle};
+                src: url(${o.url});
+            }`).join("")
+        })
+        ipcRenderer.once("spiel:game", (e, option, w, h) =>{
+            let load = {}
+            for (const entity in option.load) {
+                load[entity] = Spiel.Loader[option.load[entity].use](...option.load[entity].values)
+            }
+            new Spiel.Game(Object.assign({}, option, {load}), w, h)
+        })        
+</script>
+</body>
+</html>

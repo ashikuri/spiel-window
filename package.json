@@ -1,0 +1,36 @@
+{
+  "name": "@spiel-engine/window-creator",
+  "version": "1.0.0",
+  "description": "create a game window with engine spiel",
+  "main": "main.js",
+  "typings": "types/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ashikuri",
+  "keywords": [
+    "spiel",
+    "spiel-engine",
+    "window"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "degit": "^2.8.0",
+    "electron": "^8.0.0",
+    "electron-packager": "^14.2.1",
+    "spiel-engine": "^2.12.0",
+    "yargs": "^15.1.0"
+  },
+  "bin": {
+    "spiel-cli": "spiel-window.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashikuri/spiel-window.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashikuri/spiel-window/issues"
+  },
+  "homepage": "https://github.com/ashikuri/spiel-window#readme"
+}
