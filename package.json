@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "degit": "^2.8.0",
-    "electron": "^8.0.0",
+    "electron": "^8.5.2",
     "electron-packager": "^14.2.1",
     "spiel-engine": "^2.12.0",
     "yargs": "^15.1.0"
